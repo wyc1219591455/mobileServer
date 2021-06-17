@@ -1,0 +1,85 @@
+/*start*/
+.start{
+    height: 100vh;
+    background-color: #4a5c6b;
+}
+.start .start-img{
+    padding-top: 50%;
+    text-align: center;
+}
+.start .start-img>img{
+    width: 60%;
+    display: block;
+    margin: 0 auto 20px;
+}
+.start .start-img>h2{
+    font-size: 18px;
+    font-weight: 900;
+    letter-spacing: 3px;
+    color: #f08f00;
+    line-height: 24px;
+}
+
+
+/*login*/
+.login{
+    background-color: #4a5c6a;
+    height: 100vh;
+}
+.login .login-wrap{
+    padding: 128px 35px 0 35px;
+}
+.login .login-logo{
+    display: block;
+    width: 36px;
+    height: 42px;
+    margin: 0 auto;
+}
+.login .login-title{
+    font-size: 24px;
+    line-height: 24px;
+    color: #f08f00;
+    font-weight: bold;
+    text-align: center;
+    margin: 20px 0 40px;
+}
+.login-form {
+}
+.login-form-group{
+    margin-bottom: 15px;
+    width: 100%;
+    position: relative;
+}
+.login-form .login-form-control {
+    width: 92%;
+    background: transparent;
+    border-radius: 4px;
+    color: #fff;
+    display: block;
+    height: 32px;
+    padding: 0 4%;
+    border: 1px solid #e5e6e7;
+    font-size: 14px;
+}
+.login-form-group i{
+    position: absolute;
+    top: 50%;
+    right: 4%;
+    transform: translateY(-50%);
+    color: #999;
+    font-size: 14px;
+}
+.login-form-control:focus{
+    border-color: #3aa1ff;
+}
+.login-form .jst-button{
+    margin-bottom: 15px;
+}
+.login-write {
+    color: #fff;
+    text-align: right;
+    width: 300px;
+    display: block;
+    font-size: 14px;
+    line-height: 24px;
+}

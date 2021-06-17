@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>J-Work 移动办公平台下载页</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="./static/dist/jst-ui.css">
+    <link rel="stylesheet" href="./static/css/app-download.css">
+    <link rel="stylesheet" href="./static/css/fonts/iconfont.css">
+    <script src="./static/js/vue.js"></script>
+    <script src="./static/dist/jst-ui.umd.min.js"></script>
+    <script src="./static/js/mixin.js"></script>
+    <script src="./static/js/jquery-1.11.2.min.js"></script>
+</head>
+<body>
+<div id="download" class="app-download wrap">
+    <div>
+        <!--        <jst-nav-bar title="J-Work 移动办公平台下载页" left-arrow @click-left="goBack()">-->
+        <div slot="right" class="nav-bar-right-caidan">
+            <i class="iconfont icon-caidan"></i>
+        </div>
+        </jst-nav-bar>
+    </div>
+    <div class="download-content">
+        <div class="app-logo">
+            <img src="./static/images/icon.png" alt="">
+            <div>J-Work 移动办公平台</div>
+        </div>
+        <div class="download-btn">
+            <div class="download-btn-list" id='androidDiv'>
+                <jst-button icon="iconfont icon-anzhuo" id='android1'>Android下载</jst-button>
+                <div id='android2'>版本：V0.0.1</div>
+                <!--                <div id='android3'>大小：10MB</div>-->
+                <div id='android4'>发布时间：2016-10-26</div>
+            </div>
+            <div class="download-btn-list" id='iphoneDiv'>
+                <jst-button icon="iconfont icon-iOS" @click="goDownload()" id="ios1">iPhone下载</jst-button>
+                <div id="ios2">版本：V0.0.1</div>
+                <!--                <div id="ios3">大小：10MB</div>-->
+                <div id="ios4">发布时间：2016-10-26</div>
+            </div>
+        </div>
+        <div class="download-img">
+            <img src="./static/images/shouji.png" alt="">
+            <div>J-Work是杰士德集团自研的定制化移动办公平台，集成常用办公功能，为企业提供一站式移动办公平台，为员工提供统一的办公入口。</div>
+        </div>
+<!--        <div class="download-tip">-->
+<!--            <div>注意</div>-->
+<!--            <div>1、iPhone点击安装没反应</div>-->
+<!--            <div>桌面静默安装，需要自己切回到桌面查看安装进度；</div>-->
+<!--            <div class="tip-img"></div>-->
+<!--        </div>-->
+<!--        <div class="download-tip">-->
+<!--            <div>2、iPhone安装完成后打不开</div>-->
+<!--            <div>首次安装，需要设置信任证书，操作：设置—>通用—> 设备管理，点击XXX，信任。</div>-->
+<!--            <div class="tip-img"></div>-->
+<!--        </div>-->
+    </div>
+    <div class="feedback">下载安装问题，请联系ITC\钱凯，短号：66885</div>
+    <!--苹果下载提示-->
+    <div class="zhishi" v-show="show"><i class="iconfont icon-yindao"></i></div>
+    <jst-popup
+            :show="show"
+            custom-class="center"
+            @close="togglePopup"
+    >
+        <div>请使用系统浏览器打开下载</div>
+    </jst-popup>
+</div>
+<script>
+
+    var iosDownLoadUrl;
+    var androidDownLoadUrl;
+    var vm = new Vue({
+        el: "#download",
+        mixins: [mixin],
+        data: function () {
+            return {
+                show: false
+            }
+        },
+        created(){
+          this.show = false;
+
+          // alert(this.show)
+        },
+        updated(){
+            if(sessionStorage.getItem("show")){
+                this.show = false;
+            }
+        },
+        methods: {
+            goDownload() {
+                this.show = true
+            },
+            toggle() {
+                this.show = !this.show;
+                sessionStorage.setItem("show", "false");
+            },
+            togglePopup() {
+                this.toggle();
+            },
+        }
+    })
+
+    $(function () {
+        $.ajax({
+            url: 'https://jwork-api.justech.com:18001/api/version/lastVersion',
+            // url: 'http://10.66.53.31/api/version/lastVersion',
+            // url: 'http://172.16.4.16:8000/api/version/lastVersion',
+            type: 'get',
+            dataType: "json",
+            success: function (data) {
+                console.log(data);
+                try {
+                    data = JSON.parse(data);
+                } catch (e) {
+                }
+                if (data.data.length == 2) {
+                    $("#android2").text("版本：" + data.data[0].versionName);
+                    // $("#android3").text("大小: " + data.data[0].versionCode);
+                    $("#android4").text("发布时间：" + data.data[0].releaseTimeStr);
+                    $("#ios2").text("版本：" + data.data[1].versionName);
+                    // $("#ios3").text("大小: " + data.data[1].versionCode);
+                    $("#ios4").text("发布时间：" + data.data[1].releaseTimeStr);
+                    androidDownLoadUrl = data.data[0].url;
+                    iosDownLoadUrl = data.data[1].url;
+                } else {
+                    if (data.data[0].showStatus == '1') {
+                        $("#androidDiv").hide();
+                        $("#ios2").text("版本：" + data.data[0].versionName);
+                        // $("#ios3").text("大小: " + data.data[0].versionCode);
+                        $("#ios4").text("发布时间：" + data.data[0].releaseTimeStr);
+                        iosDownLoadUrl = data.data[0].url;
+                    } else {
+                        $("#iphoneDiv").hide();
+                        $("#android2").text("版本：" + data.data[0].versionName);
+                        // $("#android3").text("大小: " + data.data[0].versionCode);
+                        $("#android4").text("发布时间：" + data.data[0].releaseTimeStr);
+                        androidDownLoadUrl = data.data[0].url;
+                    }
+                }
+            }
+        });
+    });
+
+    var androidDownLoadBtn =document.getElementById('android1');
+    var iosDownLoadBtn=document.getElementById('ios1');
+    var normalBroser = false;
+    //给按钮添加单击事件
+    androidDownLoadBtn.onclick=function(){
+        if(!isNormalBroser()){
+            //提示android用户需要使用浏览器
+            vm.goDownload();
+        }
+        window.location.href = androidDownLoadUrl+"";
+    }
+    iosDownLoadBtn.onclick=function(){
+        if(!isNormalBroser()){
+            //提示ios用户需要使用safari浏览器
+            vm.goDownload();
+        }
+        window.location.href = iosDownLoadUrl+"";
+    }
+
+    var browser = {
+        versions: function () {
+            var u = navigator.userAgent, app = navigator.appVersion;
+            return {     //移动终端浏览器版本信息
+                trident: u.indexOf('Trident') > -1, //IE内核
+                presto: u.indexOf('Presto') > -1, //opera内核
+                webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+                gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+                mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+                ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+                android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或uc浏览器
+                iPhone: u.indexOf('iPhone') > -1, //是否为iPhone或者QQHD浏览器
+                iPad: u.indexOf('iPad') > -1, //是否iPad
+                webApp: u.indexOf('Safari') == -1 //是否web应该程序，没有头部与底部
+            };
+        }(),
+        language: (navigator.browserLanguage || navigator.language).toLowerCase()
+    };
+
+    /**-- 判断是否直接通过网址，还是微信 微博 钉钉扫码等内部浏览器方式 --**/
+    function isNormalBroser(){
+        if (browser.versions.mobile) {//判断是否是移动设备打开。browser代码在下面
+            var ua = navigator.userAgent.toLowerCase();//获取判断用的对象
+            // alert('是在移动端打开');
+            if (ua.match(/MicroMessenger/i) == "micromessenger"||ua.match(/WeiBo/i) == "weibo"||ua.match(/QQ/i) == "qq") {
+                //在微信中打开 ,微博, qq空间 打开
+                normalBroser = false;
+                return normalBroser;
+            }else{
+                normalBroser = true;
+                return normalBroser;
+            }
+        }else{
+            normalBroser = true;
+            return normalBroser;
+        }
+    }
+</script>
+</body>
+</html>

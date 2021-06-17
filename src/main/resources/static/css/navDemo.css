@@ -1,0 +1,34 @@
+.wrap{
+    padding-top: 46px;
+}
+.wrap .jst-nav-bar{
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+.margin-top10{
+    margin-top: 10px;
+}
+
+.nav-list{
+
+}
+.nav-list-item>.list-item-title{
+    font-size: 14px;
+    line-height: 24px;
+    padding: 10px 15px;
+    border-bottom: 1px solid #e7e7e7;
+    position: relative;
+    box-sizing: border-box;
+    background-color: #fff;
+}
+.nav-list-item>.list-item-title:before{
+    content: '';
+    width: 5px;
+    height: 100%;
+    display: inline-block;
+    background-color: #3aa1ff;
+    position: absolute;
+    top: 0;
+    left: 0;
+}

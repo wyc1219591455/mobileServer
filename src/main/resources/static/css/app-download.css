@@ -1,0 +1,111 @@
+/*APP下载*/
+body{
+    background-color: #fff;
+}
+.jst-nav-bar{
+    z-index: 1000!important;
+}
+.nav-bar-right-caidan{
+    color: #fff;
+}
+.app-download .app-logo{
+    font-size: 14px;
+    text-align: center;
+    padding: 30px 0;
+}
+.app-download .app-logo img{
+     width: 80px;
+     height: 80px;
+    margin-bottom: 17px;
+ }
+.app-download .download-btn{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.app-download .download-btn div:nth-child(1){
+    margin-bottom: 25px;
+}
+.app-download .download-btn-list div{
+    font-size: 12px;
+    color: #666;
+    margin-top: 8px;
+}
+.app-download .download-btn-list button i{
+    font-size: 20px;
+}
+.app-download .download-img{
+    text-align: center;
+    padding: 0 15px;
+}
+.app-download .download-img div{
+    text-align: left;
+    font-size: 14px;
+    border-bottom: 1px solid #e7e7e7;
+    padding: 20px 0 24px 0;
+    line-height: 23px;
+}
+.app-download .download-img img{
+    width: 163px;
+    height: 177px;
+    margin-top: 42px;
+}
+.app-download .download-tip{
+    padding: 0 15px;
+    margin-top: 24px;
+}
+.app-download .download-tip div{
+    font-size: 14px;
+    margin-bottom: 8px;
+    line-height: 20px;
+}
+.app-download .tip-img{
+    width: 100%;
+    height: 150px;
+    background-color: #e7e7e7;
+}
+.app-download .feedback{
+    font-size: 14px;
+    color: #c3c3c3;
+    text-align: center;
+    margin: 22px 0;
+}
+.app-download .ipthon-tip{
+    background-color: #e7e7e7;
+}
+.app-download .zhishi{
+    position: absolute;
+    top: 37px;
+    right: 27px;
+    color: #fff;
+    z-index: 1000;
+}
+.app-download .zhishi i{
+    font-size: 70px;
+}
+.jst-popup{
+    background-color: initial;
+    color: #fff;
+    text-align: center;
+    font-size: 16px;
+}
+/*加载失败提示*/
+.fail-tip .fail-tip-content{
+    text-align: center;
+    margin-top: 150px;
+}
+.fail-tip .fail-tip-content i{
+    font-size: 50px;
+    color: #4a5c6a;
+}
+.fail-tip .fail-tip-content div{
+    font-size: 12px;
+    color: #666666;
+    margin-top: 8px;
+}
+.fail-tip .fail-tip-content a{
+    color: #3aa1ff;
+}
+
+

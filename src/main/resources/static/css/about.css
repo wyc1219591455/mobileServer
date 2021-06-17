@@ -1,0 +1,87 @@
+/*.about-update{*/
+    /*height: 100vh;*/
+    /*width: 100%;*/
+/*}*/
+.wrap{
+    padding-top: 46px;
+}
+.wrap .jst-nav-bar{
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+/*关于版本更新*/
+.about-versions{
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 50px 0;
+    background-color: #fff;
+}
+.about-versions img{
+    display: inline-block;
+    width: 60%;
+    margin: 0 auto;
+}
+.about-versions .versions-name{
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: bolder;
+    margin-top: 10px;
+}
+.about-versions .versions-number{
+    font-size: 12px;
+    color: #666;
+    line-height: 24px;
+}
+.checked-update{
+    display: flex;
+    display: -webkit-flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    background-color: #fff;
+    height: 45px;
+    padding: 0 15px;
+}
+.checked-update>.versions-default{
+    font-size: 16px;
+}
+.checked-update>.versions-default.versions-point{
+    position: relative;
+}
+.checked-update>.versions-default.versions-point::after{
+    position: absolute;
+    content: " ";
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    top: -4px;
+    right: -8px;
+    background: #ed5565;
+}
+.checked-update>.versions-number{
+    font-size: 14px;
+    color: #666;
+}
+.about-update-copyright{
+    position: fixed;
+    bottom: 8%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    text-align: center;
+}
+.about-update-copyright p{
+    white-space: nowrap;
+    font-size: 14px;
+    line-height: 24px;
+}
+.about-update-copyright p.copy-right{
+    font-size: 12px;
+    color: #666;
+}
+.about-update-copyright p>a{
+    color: #f08f00;
+}

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.justech.mobile.mobileserver.mapper.sqlserver.EmpMapper">
+
+
+    <select id="findEmpByUserNameList" parameterType="com.justech.mobile.mobileserver.entity.MealDtl" resultType="integer" >
+        select count(*) from  TDailyMealDtl
+        where FDinerID=replace(ltrim(replace(#{dinerID},'0',' ')),' ','0') and FDinerType=#{dinerType} and FDinerDate=#{dinerDate}
+
+    </select>
+
+    <select id="findEmpHuman"  resultType="com.justech.mobile.mobileserver.entity.HumanDtl" >
+        select A.F_Name as name ,A.F_DeptID as deptID,B.F_Name as deptName from  T_Emp A
+        LEFT JOIN T_Dept B ON A.F_DeptID=B.F_ID
+        where F_EmpID=#{dinerID}
+
+    </select>
+
+
+
+    <insert id="insertMealDtl" parameterType="com.justech.mobile.mobileserver.entity.MealDtl" >
+        insert into TDailyMealDtl (FDocID,FDinerID,FDinerName,FDinerDeptID,FDinerDeptName,FDinerType,FDinerUnUse,FDinerDate,FCreatorName,FExcelFlag) values
+        <foreach collection="list" item="item" separator=",">
+            ('DOCID0007596163',replace(ltrim(replace(#{item.dinerID},'0',' ')),' ','0'),#{item.dinerName},#{item.dinerDeptID},#{item.dinerDeptName},#{item.dinerType},0,#{item.dinerDate},'新建任务',0)
+        </foreach>
+    </insert>
+
+    <delete id="deleteMealDtl" parameterType="com.justech.mobile.mobileserver.entity.MealUpdateCriteria">
+        delete  from TDailyMealDtl where FDinerID=replace(ltrim(replace(#{dinerID},'0',' ')),' ','0') and FDinerDate=#{dinerDate}
+    </delete>
+</mapper>

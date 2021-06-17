@@ -1,0 +1,20 @@
+body{
+    background-color: #fff;
+}
+.wrap{
+    padding-top: 46px;
+}
+.wrap .jst-nav-bar{
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+.main-wrap>.main-content{
+    padding: 15px;
+}
+.main-wrap>.main-content p{
+    font-size: 14px;
+    line-height: 24px;
+    text-indent: 2em;
+}
+

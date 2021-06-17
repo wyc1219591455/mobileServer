@@ -1,0 +1,171 @@
+server:
+  port: 8888
+  servlet:
+    context-path: /mobile-server
+    jsp:
+      init-parameters:
+        development: true
+spring:
+  jmx:
+    default-domain: mobile-server
+  application:
+    name: mobile-server
+  datasource:
+    master:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      username: jdbadmin
+      password: Jst#2020
+      jdbc-url: jdbc:mysql://10.66.52.175:3306/j_work
+      hikari:
+       maximum-pool-size: 50
+    other:
+      driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+      jdbc-url: jdbc:sqlserver://${sqlserver_url:172.16.0.18}\${instanceName:JUSTECH_ERP};DatabaseName=${database_name:ERP}
+      username: ${sqlserver_name:sa}
+      password: ${sqlserver_password:Justech2014a}
+
+
+
+  resources:
+    static-locations: classpath:/templates/,classpath:/static/
+  redis:
+    database: 1
+    host: 10.66.52.174
+    password: 123@abcd
+    port: 6379
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 30MB
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+  data:
+    elasticsearch:
+      cluster-nodes: 10.66.52.174:9300
+      cluster-name: docker-cluster
+      repositories:
+        enabled: true
+      properties:
+        transport:
+          tcp:
+            connect_timeout: 120s
+
+http:
+
+  maxTotal: 100
+  defaultMaxPerRoute: 20
+  connectTimeout: 1000
+  connectionRequestTimeout: 500
+  socketTimeout: 10000
+  validateAfterInactivity: 5000
+file:
+  server:
+    url: http://10.66.52.173:8080
+erp:
+  server:
+    user:
+      list:
+        url: http://erp.justech.com:8080
+      identification:
+        url: http://sso.justech.com:18002
+      caterRecord:
+        url: http://erp.justech.com:8080/api/catering/records
+      caterException:
+        url: http://erp.justech.com:8080/api/catering/exception
+oa:
+  server: http://10.66.52.76:8080/wechat
+  syscorpid: 3fcc62851ba7478682a17633abc1ad2d
+  outsysid: cbd666267a2948dd8b9c2ed007b496f2
+aes:
+  password: 'b0c3d70a65302f89'
+  ivp: 'bab0307e25da19f3'
+  algorithmStr: 'AES/CBC/PKCS5Padding'
+rsa:
+  publicKey: 'MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCkq31AS4mgnPvjtkFvRI0TrfB5YdWgtXBBEe4HFXkjJ8kbfNMJq1UvS3KM2PyGVFFTQkZ4+VzEJ+n4fn1aC1OwRfw5gvBMqW0+N68D7EtmEwP2R9J+0VPOZV+MVGETzcLqop40KG0Rx5TQNWY39EboquNxS61icFQqMReO6T/EHwIDAQAB'
+  privateKey: 'MIICdwIBADANBgkqhkiG9w0BAQEFAASCAmEwggJdAgEAAoGBAKSrfUBLiaCc++O2QW9EjROt8Hlh1aC1cEER7gcVeSMnyRt80wmrVS9LcozY/IZUUVNCRnj5XMQn6fh+fVoLU7BF/DmC8EypbT43rwPsS2YTA/ZH0n7RU85lX4xUYRPNwuqinjQobRHHlNA1Zjf0Ruiq43FLrWJwVCoxF47pP8QfAgMBAAECgYAaDGKYzBouRQb3g3ogXsiuR0KWAOrpLCpgsLRlfHkYHZALgBhmHCsyew3Yx+5SVX4z3HUHZ/LLuMCjJWcw2j/XjUmqYOWf2FuEmLPGOzVCQBsyIET57tybvn31cnNof6K+eZ6MjyghidejxXeG5OstPx/EORXaQnXfkBK0LV0yyQJBAPqheNHaohBuG9M2P8Q/1y9GNdTyx986kxcb0W/vB6R/hq3Dz2q7OnvilsZviSLH8QtZW3J85fz5/vNCtpcc+lsCQQCoMpWQBQd4o4vg8ZgnEer2q5ibMjxxrYCq/zTYOcWPiem8+HdRZUXy8Ubp4bV/1P8GHesOzDJDS4AQ24fkQ6CNAkEA1x5fMGgi8E1B7sDCbLSLAxWVQOj9avnApHYJBrU4bxXSSDUoQ6jeItUyqrGzGDpbB220Ewlm8gK1tKAPTpbdvwJAd7+D0gRynEY7+UuoGvDbywDCZoPumrR/Lb8CnYsMB7SVj++J645hraRv62XBtaAsbOtyBZgFlPm01MunRTGMpQJBAMX5pJiEvLu1tGVIiRcELX/cxnnlAD7csL8VQ4U5zpGc7drWmPaiZg0WmJwhkV91QDk4Ypyg0iM3BOFE7PcAbco='
+expirTime: 604800
+logging:
+  level:
+    root: info
+cumstonfilter:
+  exclude:
+    - path: '/user'
+      method: 'POST'
+    - path: '/oauser'
+      method: 'GET'
+    - path: '/article'
+      method: 'POST'
+    - path: '/channels/categories'
+      method: 'POST'
+    - path: '/articleList'
+      method: 'POST'
+    - path: '/suggestionList'
+      method: 'GET'
+    - path: '/article\/{1}\S*'
+      method: 'PUT'
+    - path: '/articles'
+      method: 'GET'
+    - path: '/categories'
+      method: 'POST'
+    - path: '/categories'
+      method: 'POST'
+    - path: '/contracts'
+      method: 'POST'
+    - path: '/managerInfo'
+      method: 'GET'
+    - path: '/index.html'
+      method: 'GET'
+    - path: '/cater'
+      method: 'POST'
+    - path: '/static\/{1}\S*'
+      method: 'GET'
+    - path: '/articles\/{1}\S*'
+      method: 'GET'
+    - path: '/sendSms'
+      method: 'GET'
+    - path: '/loginBySmsCode'
+      method: 'POST'
+    - path: '/searchByDeviceId'
+      method: 'GET'
+    - path:  '/findAccountLogs'
+      method: 'GET'
+    - path:  '/event'
+      method: 'GET'
+    - path:  '/forbidDevice'
+      method: 'GET'
+    - path: '/userIn7dLog'
+      method: 'GET'
+    - path: '/selectActiveUser'
+      method: 'GET'
+    - path:  '/requestAnalyze'
+      method: 'GET'
+    - path:  '/searchActive'
+      method: 'GET'
+    - path:  '/postFunction/type'
+      method: 'POST'
+    - path:  '/postFunction/user'
+      method: 'POST'
+    - path:  '/postFunction/tree'
+      method: 'GET'
+    - path:  '/postFunction/user\/{1}\S*'
+      method: 'DELETE'
+    - path:  '/postFunction/type\/{1}\S*'
+      method: 'DELETE'
+    - path:  '/postFunction/user\/{1}\S*'
+      method: 'PUT'
+    - path:  '/postFunction/type\/{1}\S*'
+      method: 'PUT'
+sms:
+  url: http://smssh1.253.com/msg/send/json
+  account: N0250046
+  password: JmW1PASN05d950
+  mould: '您好！验证码是{0}，短信有效时间为{1}分钟。'
+  expire: 5
+zipkin:
+  url: http://10.66.52.104:9411/api/v2/spans
+#dingtalk:
+#  appId: dingoazzaaqajnrimrkqqh
+#  appSecret: 3-R7TfAjpJa3xQxzhzY158dwsT-sc0lbFgaATK8ndpACQArOaz8kpNh8hAPeCHQf

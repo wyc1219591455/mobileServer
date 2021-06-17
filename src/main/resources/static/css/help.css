@@ -1,0 +1,80 @@
+/*共用*/
+img{
+    vertical-align: middle;
+    width: 100%;
+}
+.margin-top10{
+    margin-top: 10px;
+}
+.text-center{
+    text-align: center;
+}
+.wrap{
+    padding-top: 46px;
+}
+.wrap .jst-nav-bar{
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+/*help*/
+.hot-question, .class-question, .help-btn{
+    background-color: #fff;
+}
+.hot-question>.help-title, .class-question>.help-title{
+    font-size: 14px;
+    line-height: 24px;
+    padding: 10px 15px;
+    border-bottom: 1px solid #e7e7e7;
+    position: relative;
+    box-sizing: border-box;
+}
+.hot-question>.help-title:before, .class-question>.help-title:before{
+    content: '';
+    width: 5px;
+    height: 100%;
+    display: inline-block;
+    background-color: #3aa1ff;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.hot-question .jst-cell__title, .class-question .jst-cell__title{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/*help details*/
+.help-details{
+
+}
+.help-details>.main-content{
+    padding: 20px 15px;
+}
+.help-details>.main-content>.help-details-title{
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+.help-details>.main-content>.help-details-content{
+    font-size: 13px;
+    line-height: 24px;
+}
+.help-details>.main-content p{
+    text-indent: 2em;
+    font-size: 13px;
+    color: #000;
+
+}
+.help-details>.main-content p.update-time{
+    text-align: right;
+    color: #666;
+    font-size: 12px;
+    margin: 20px 0;
+}
+.help-details>.main-content>.jst-row{
+    justify-content:space-around;
+}
+.help-details>.main-content>.jst-row>.jst-button{
+    padding: 12px 36px;
+}

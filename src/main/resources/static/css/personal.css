@@ -1,0 +1,379 @@
+/*demo common style*/
+.margin-top10{
+    margin-top: 10px;
+}
+.wrap{
+    padding-top: 46px;
+}
+.wrap .jst-nav-bar{
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+.clue-text{
+    padding: 15px 0 45px 15px;
+    color: #999;
+    font-size: 12px;
+}
+.clue-text i.iconfont{
+    color: #f08f00;
+}
+
+.list-item-title{
+    font-size: 14px;
+    line-height: 24px;
+    padding: 10px 15px;
+    border-bottom: 1px solid #e7e7e7;
+    position: relative;
+    box-sizing: border-box;
+    background-color: #fff;
+    display: flex;
+    display: -webkit-flex;
+    justify-content: space-between;
+}
+.list-item-title:before{
+    content: '';
+    width: 5px;
+    height: 100%;
+    display: inline-block;
+    background-color: #3aa1ff;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/*personal 个人中心*/
+.personal {
+    height: 100px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px; }
+.personal img {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%; }
+.personal .personal-msg {
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px; }
+.personal .personal-msg .personal-msg-list div {
+    margin-top: 6px; }
+.personal .personal-msg .personal-msg-right {
+    color: #969799; }
+
+/*cache 清理缓存*/
+.cache{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+}
+.cache .cache-content{
+    text-align: center;
+}
+.cache .cache-text{
+    margin-left: 5px;
+}
+.cache .cache-num{
+    font-size: 14px;
+    margin: 75px  0 50px 0;
+}
+.cache .jst-button--primary:hover{
+    background: #9cd0ff;
+    border: 1px solid #9cd0ff;
+}
+.cache .cache-tip{
+    font-size: 12px;
+    color: #666;
+    padding: 0 30px;
+    margin-top: 63px;
+    text-align: left;
+    line-height: 20px;
+}
+
+/*myapp我的应用*/
+.myapp-content{
+    background-color: #fff;
+}
+.myapp .myapp-list{
+    height: 70px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 15px;
+    margin-left: 15px;
+    border-bottom: 1px solid #e7e7e7;
+}
+.myapp .myapp-list img{
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+}
+.myapp .myapp-list .myapp-list-r{
+    width: 85%;
+    font-size: 14px;
+}
+.myapp .myapp-list .myapp-list-r div:nth-child(2){
+    margin-top: 6px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 12px;
+}
+
+
+/* 我的假期 */
+.holiday-list-item{
+    background-color: #fff;
+}
+.holiday-list-item .jst-row{
+    padding: 10px 0;
+    justify-content: space-around;
+}
+.holiday-list-item .jst-col-item{
+    position: relative;
+    border-left: 1px solid #e7e7e7;
+    border-right: 1px solid #e7e7e7;
+}
+.holiday-list-item .jst-col-item:first-child{
+    text-align: left;
+    border: none;
+}
+.holiday-list-item .jst-col-item:last-child{
+    text-align: right;
+    border: none;
+}
+.holiday-list-item .holiday-item-wrap{
+    text-align: center;
+}
+.holiday-list-item .holiday-item-wrap.holiday-item-left{
+    display: inline-block;
+    padding-left: 15px;
+    text-align: center;
+}
+.holiday-list-item .holiday-item-wrap.holiday-item-right{
+    display: inline-block;
+    padding-right: 15px;
+    text-align: center;
+}
+.holiday-list-item .jst-col-item div{
+    font-size: 14px;
+    line-height: 20px;
+}
+.holiday-list-item .leave-wrap .read-more{
+    padding: 10px 15px;
+    font-size: 14px;
+    line-height: 24px;
+    color: #3aa1ff;
+    text-align: center;
+}
+
+/* 我的考勤 */
+.attendance-list .record-details{
+    display: flex;
+    display: -webkit-flex;
+    flex-wrap: wrap;
+    background-color: #fff;
+}
+.attendance-list .record-items{
+    width: 25%;
+    text-align: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+    border-right: 1px solid #eee;
+    box-sizing: border-box;
+}
+.attendance-list .record-items:nth-child(4n){
+    border-right: none;
+}
+.attendance-list .record-num{
+    font-size: 14px;
+    line-height: 20px;
+    color: #000;
+}
+.attendance-list .record-num .record-num-default{
+    color: #000;
+}
+.attendance-list .record-num .record-num-danger{
+    color: #ed5565;
+}
+.attendance-list .record-num .record-num-warn{
+    color: #f08f00;
+}
+.attendance-list .record-title{
+    font-size: 12px;
+    color: #000;
+    line-height: 20px;
+}
+.attendance-list .attachment-title{
+    font-size: 14px;
+    line-height: 24px;
+    padding: 10px 15px;
+    border-bottom: 1px solid #e7e7e7;
+    position: relative;
+    box-sizing: border-box;
+    background-color: #fff;
+}
+.attendance-list .attachment-title:before{
+    content: '';
+    width: 5px;
+    height: 100%;
+    display: inline-block;
+    background-color: #3aa1ff;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.attachment-box{
+    background-color: #fff;
+}
+.attachment-box .attachment-box-item{
+    display: flex;
+    display: -webkit-flex;
+    justify-content: space-between;
+    padding: 10px 15px;
+    position: relative;
+}
+.attachment-box .attachment-box-item:after{
+    content: " ";
+    position: absolute;
+    pointer-events: none;
+    -webkit-transform-origin: center;
+    transform-origin: center;
+    top: auto;
+    left: 15px;
+    right: 0;
+    bottom: 0;
+    -webkit-transform: scaleY(.5);
+    transform: scaleY(.5);
+    border-bottom: 1px solid #eee;
+}
+.attachment-box .abnormal-date{
+    background-color: #fff;
+    font-size: 14px;
+    color: #000;
+    line-height: 20px;
+}
+.attachment-box .abnormal-record-wrap{
+    font-size: 14px;
+    color: #000;
+    line-height: 20px;
+    min-width: 126px;
+    text-align: left;
+}
+.attachment-box .abnormal-record-wrap .abnormal-record{
+    text-align: left;
+}
+
+
+/* 报餐查询 */
+.meals-main .query-header{
+    display: -webkit-flex;
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+}
+.meals-main .query-header>div{
+    width: 50%;
+    text-align: center;
+}
+.meals-main .query-header span{
+    display: inline-block;
+
+    padding: 15px 10px;
+    font-size: 14px;
+}
+.meals-main .query-header span.active{
+    border-bottom: 1px solid #3aa1ff;
+}
+.meals-main .vc-rounded-lg{
+    border: none;
+    border-radius: 0;
+    width: 100%;
+}
+.meals-main .vc-header,
+.meals-main .vc-arrows-container{
+    display: none !important;
+}
+.meals-main .vc-grid-container.vc-weeks{
+    padding: 0;
+}
+.meals-main .vc-grid-cell{
+    background-color: #fff;
+}
+.meals-main .vc-grid-cell.vc-grid-cell-row-1{
+    background-color: #eeeeee;
+}
+.meals-main .vc-grid-cell .vc-day{
+    border-right: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    margin-right:-1px;
+    margin-bottom:-1px;
+}
+.meals-main .meals-wrap{
+}
+.meals-main .meals-data{
+    text-align: center;
+    padding: 10px 0;
+}
+.meals-main .meals-data.abnormal{
+    background-color: #f3a32d;
+    color: #fff;
+}
+.meals-main .meals-list{
+    display: -webkit-flex;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    background-color: #eee;
+    min-height: 36px;
+    justify-content: center;
+    align-items: center;
+}
+.meals-main .weekday-7 .meals-list,
+.meals-main .weekday-1 .meals-list{
+    background-color: transparent;
+}
+.meals-main .meals-type{
+
+}
+.meals-main .meals-type span{
+
+}
+.meals-main .meals-details-default{
+    padding: 50px 0;
+    text-align: center;
+    color: #c3c3c3;
+}
+.meals-main .meals-details-default>i.iconfont{
+    font-size: 36px;
+}
+.meals-main .meals-details-tips{
+    font-size: 12px;
+    margin-top: 20px;
+}
+.meals-main .meals-details-tips p{
+    line-height: 20px;
+}
+.meals-details-abnormal>p{
+    padding: 10px 0 50px 0;
+    text-align: center;
+    font-size: 12px;
+    color: #c3c3c3;
+}
+.untreated .jst-cell__value{
+    color: #ed5565;
+}
+.meals-details-abnormal .jst-cell{
+    align-items: flex-start;
+}
+.meals-details-abnormal .jst-cell__title{
+    flex: 2;
+}
